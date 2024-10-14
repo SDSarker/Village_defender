@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cjitxcj8ed4x6"]
 
-[ext_resource type="Script" path="res://Scene/enemy.gd" id="1_b8q4e"]
 [ext_resource type="Texture2D" uid="uid://y46s6ft04bcx" path="res://Assests/Alien.png" id="1_blkg4"]
+[ext_resource type="Script" path="res://Scene/allien.gd" id="1_ipqul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hr7rm"]
 atlas = ExtResource("1_blkg4")
@@ -68,15 +68,15 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mugfa"]
-radius = 23.0
-height = 70.0
+radius = 17.0
+height = 50.0
 
 [node name="Allien" type="CharacterBody2D"]
-script = ExtResource("1_b8q4e")
+script = ExtResource("1_ipqul")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, 0)
-scale = Vector2(0.516, 0.53012)
+position = Vector2(-1.19209e-07, 1)
+scale = Vector2(0.377, 0.403614)
 sprite_frames = SubResource("SpriteFrames_qpdht")
 animation = &"Running"
 autoplay = "Running"
@@ -84,7 +84,9 @@ frame_progress = 0.352232
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -3)
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_mugfa")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(3, 3)
+scale = Vector2(1, 1.1)
