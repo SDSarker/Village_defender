@@ -14,3 +14,7 @@ config/name="Village Defender"
 run/main_scene="res://Scene/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_height=748
