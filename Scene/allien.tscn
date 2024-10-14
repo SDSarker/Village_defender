@@ -1,0 +1,85 @@
+[gd_scene load_steps=12 format=3 uid="uid://cu6y0kxqjyofv"]
+
+[ext_resource type="Texture2D" uid="uid://y46s6ft04bcx" path="res://Assests/Alien.png" id="1_blkg4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr7rm"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(0, 166, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oow1j"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(125, 166, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gigla"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(250, 166, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpgjv"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(375, 166, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3txt0"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(0, 332, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrc5i"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(125, 332, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mtut"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(250, 332, 125, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wb4ap"]
+atlas = ExtResource("1_blkg4")
+region = Rect2(375, 332, 125, 166)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpdht"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr7rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oow1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gigla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpgjv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3txt0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrc5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mtut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wb4ap")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mugfa"]
+radius = 23.0
+height = 118.0
+
+[node name="Allien" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_qpdht")
+animation = &"Running"
+autoplay = "Running"
+frame = 3
+frame_progress = 0.959147
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, -2)
+shape = SubResource("CapsuleShape2D_mugfa")
