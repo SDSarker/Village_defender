@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://byri2wbnoc1b1"]
+[gd_scene load_steps=12 format=3 uid="uid://byri2wbnoc1b1"]
 
 [ext_resource type="Script" path="res://Scene/game_scene.gd" id="1_twyhk"]
 [ext_resource type="Texture2D" uid="uid://bbul51gthw78i" path="res://Assests/tilesets/walls/walls.png" id="1_vdglc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://coab7wkbp6je3" path="res://Assests/Gate/GoldMine_Inactive.png" id="3_axlp5"]
 [ext_resource type="PackedScene" uid="uid://b3umsrl3qo4x1" path="res://Scene/portal.tscn" id="4_gtk1d"]
 [ext_resource type="PackedScene" uid="uid://cgle4uujksmox" path="res://Scene/SpawnLocation.tscn" id="6_cm6pq"]
+[ext_resource type="PackedScene" uid="uid://dx7u7w5mawdx1" path="res://Scene/player.tscn" id="7_sppf3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kpfvq"]
 texture = ExtResource("1_vdglc")
@@ -220,5 +221,8 @@ position = Vector2(1128, 184)
 
 [node name="SpawnLocation" parent="." instance=ExtResource("6_cm6pq")]
 position = Vector2(1128, 56)
+
+[node name="Player" parent="." instance=ExtResource("7_sppf3")]
+position = Vector2(175, 98)
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://dx7u7w5mawdx1"]
+
+[ext_resource type="Script" path="res://Scene/player.gd" id="1_3715g"]
+[ext_resource type="Texture2D" uid="uid://00f0dj6nqk03" path="res://Assests/Knight/SpriteSheet.png" id="1_ygcgg"]
+[ext_resource type="PackedScene" path="res://Scene/sword.tscn" id="3_nroi1"]
+
+[sub_resource type="Animation" id="Animation_omo8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_752q5"]
+resource_name = "attack"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.785398, 1.5708, 2.35619, 3.14159, 3.92699, 4.71239, 5.32325, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_b26k1"]
+resource_name = "walkDown"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(0, 1), Vector2i(0, 2), Vector2i(0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_7ud1q"]
+resource_name = "walkLeft"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(2, 0), Vector2i(2, 1), Vector2i(2, 2), Vector2i(2, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_nf5gl"]
+resource_name = "walkRight"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(3, 0), Vector2i(3, 1), Vector2i(3, 2), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_exs5b"]
+resource_name = "walkUp"
+length = 0.8
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(1, 0), Vector2i(1, 1), Vector2i(1, 2), Vector2i(1, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d4oa8"]
+_data = {
+"RESET": SubResource("Animation_omo8r"),
+"attack": SubResource("Animation_752q5"),
+"walkDown": SubResource("Animation_b26k1"),
+"walkLeft": SubResource("Animation_7ud1q"),
+"walkRight": SubResource("Animation_nf5gl"),
+"walkUp": SubResource("Animation_exs5b")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t1mgy"]
+radius = 6.0
+height = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_3715g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_ygcgg")
+hframes = 4
+vframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_d4oa8")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_t1mgy")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sword" parent="Node2D" instance=ExtResource("3_nroi1")]
+position = Vector2(-16.5367, -16.1101)
+scale = Vector2(0.5, 0.5)
