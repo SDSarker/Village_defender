@@ -27,8 +27,12 @@ func updateAnimation():
 		elif velocity.y < 0: direction = "Up"
 	
 		animation_player.play("walk" + direction)
-func _physics_process(delta):
+func _physics_process(_delta):
 	handleInput()
 	move_and_slide()
 	updateAnimation()
 	
+
+
+func _on_area_2d_area_entered(_area: Area2D) -> void:
+	print("Collided!")
