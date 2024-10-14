@@ -167,3 +167,25 @@ layer_0/tile_data = PackedInt32Array(32, 0, 4, 65568, 0, 4, 131104, 0, 4, 196640
 [node name="All Portals" type="Node" parent="."]
 
 [node name="Portal" parent="All Portals" instance=ExtResource("4_gtk1d")]
+position = Vector2(151, 630)
+
+[node name="Portal2" parent="All Portals" instance=ExtResource("4_gtk1d")]
+position = Vector2(233, 630)
+
+[node name="Portal3" parent="All Portals" instance=ExtResource("4_gtk1d")]
+position = Vector2(312, 630)
+
+[node name="Portal4" parent="All Portals" instance=ExtResource("4_gtk1d")]
+position = Vector2(407, 630)
+
+[node name="Portal5" parent="All Portals" instance=ExtResource("4_gtk1d")]
+position = Vector2(1126, 183)
+rotation = -1.57079
+
+[node name="Portal6" parent="All Portals" instance=ExtResource("4_gtk1d")]
+position = Vector2(1126, 60)
+rotation = -1.57079
+
+[node name="Portal7" parent="All Portals" instance=ExtResource("4_gtk1d")]
+position = Vector2(1126, 119)
+rotation = -1.57079
