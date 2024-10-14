@@ -1,4 +1,4 @@
 #include<stdio.h>
 int main(){
-    printf("Hello arjo");
+    printf("We will win");
 }
