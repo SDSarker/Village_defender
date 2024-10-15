@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://cf3qhet3dwkk3"]
+
+[ext_resource type="PackedScene" uid="uid://cjitxcj8ed4x6" path="res://Scene/allien.tscn" id="1_nbs8g"]
+[ext_resource type="Texture2D" uid="uid://blilq7xprvc4j" path="res://Assests/Alliens/Alien2-removebg-preview.png" id="2_ui11g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55o28"]
+atlas = ExtResource("2_ui11g")
+region = Rect2(42, 116, 35, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bngyh"]
+atlas = ExtResource("2_ui11g")
+region = Rect2(77, 116, 35, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icsiw"]
+atlas = ExtResource("2_ui11g")
+region = Rect2(112, 116, 35, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv2xn"]
+atlas = ExtResource("2_ui11g")
+region = Rect2(147, 116, 35, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwndi"]
+atlas = ExtResource("2_ui11g")
+region = Rect2(182, 116, 35, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vik2"]
+atlas = ExtResource("2_ui11g")
+region = Rect2(217, 116, 35, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u74e0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55o28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bngyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icsiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv2xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwndi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vik2")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55o28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bngyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icsiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv2xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwndi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vik2")
+}],
+"loop": true,
+"name": &"side",
+"speed": 10.0
+}]
+
+[node name="Allien2" instance=ExtResource("1_nbs8g")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0, 1.56324)
+sprite_frames = SubResource("SpriteFrames_u74e0")
+animation = &"back"

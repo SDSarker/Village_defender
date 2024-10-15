@@ -1,0 +1,120 @@
+[gd_scene load_steps=15 format=3 uid="uid://dleb5wcstgtew"]
+
+[ext_resource type="PackedScene" uid="uid://cjitxcj8ed4x6" path="res://Scene/allien.tscn" id="1_mhqrf"]
+[ext_resource type="Texture2D" uid="uid://cpuwnvv7xwe2a" path="res://Assests/Alliens/Alien-removebg-preview.png" id="2_tm7ne"]
+[ext_resource type="Texture2D" uid="uid://c88jsux8vtawn" path="res://Assests/Alliens/Blast.png" id="3_iu841"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq3ve"]
+atlas = ExtResource("2_tm7ne")
+region = Rect2(43, 110, 36, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dkvp"]
+atlas = ExtResource("2_tm7ne")
+region = Rect2(79, 110, 36, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjuxt"]
+atlas = ExtResource("2_tm7ne")
+region = Rect2(115, 110, 36, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mjbe"]
+atlas = ExtResource("2_tm7ne")
+region = Rect2(151, 110, 36, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgupf"]
+atlas = ExtResource("2_tm7ne")
+region = Rect2(187, 110, 36, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hqal"]
+atlas = ExtResource("2_tm7ne")
+region = Rect2(223, 110, 36, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoieb"]
+atlas = ExtResource("3_iu841")
+region = Rect2(0, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6if1g"]
+atlas = ExtResource("3_iu841")
+region = Rect2(153, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pck3j"]
+atlas = ExtResource("3_iu841")
+region = Rect2(306, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfy2c"]
+atlas = ExtResource("3_iu841")
+region = Rect2(459, 204, 153, 204)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkdvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq3ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dkvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjuxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mjbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgupf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hqal")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoieb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6if1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pck3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfy2c")
+}],
+"loop": true,
+"name": &"blast",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq3ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dkvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjuxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mjbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgupf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hqal")
+}],
+"loop": true,
+"name": &"side",
+"speed": 14.0
+}]
+
+[node name="Allien3" instance=ExtResource("1_mhqrf")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(-1.37406, 3.0328)
+scale = Vector2(0.161752, 0.14738)
+sprite_frames = SubResource("SpriteFrames_fkdvu")
+frame = 0
+frame_progress = 0.0

@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://cjitxcj8ed4x6"]
+[gd_scene load_steps=31 format=3 uid="uid://cjitxcj8ed4x6"]
 
 [ext_resource type="Script" path="res://Scene/allien.gd" id="1_ipqul"]
 [ext_resource type="Texture2D" uid="uid://ddpydtlyv7p6t" path="res://Assests/alien-worm-monster-animated-character-260nw-2406102827-removebg-preview.png" id="2_1ql1x"]
 [ext_resource type="Texture2D" uid="uid://dk63imtq1of2u" path="res://Assests/Redalllien.png" id="2_mkao0"]
+[ext_resource type="Texture2D" uid="uid://c88jsux8vtawn" path="res://Assests/Alliens/Blast.png" id="3_pwmee"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8uvkj"]
 radius = 9.05539
@@ -42,6 +43,22 @@ region = Rect2(371, 0, 53, 70)
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3ovj"]
 atlas = ExtResource("2_mkao0")
 region = Rect2(424, 0, 53, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoieb"]
+atlas = ExtResource("3_pwmee")
+region = Rect2(0, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6if1g"]
+atlas = ExtResource("3_pwmee")
+region = Rect2(153, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pck3j"]
+atlas = ExtResource("3_pwmee")
+region = Rect2(306, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfy2c"]
+atlas = ExtResource("3_pwmee")
+region = Rect2(459, 204, 153, 204)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0c8l5"]
 atlas = ExtResource("2_1ql1x")
@@ -119,6 +136,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eoieb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6if1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pck3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfy2c")
+}],
+"loop": true,
+"name": &"blast",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0c8l5")
 }, {
 "duration": 1.0,
@@ -157,11 +191,6 @@ animations = [{
 radius = 27.0
 
 [node name="Allien" type="CharacterBody2D"]
-visibility_layer = 2
-collision_layer = 2
-collision_mask = 3
-motion_mode = 1
-wall_min_slide_angle = 0.0
 script = ExtResource("1_ipqul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -170,29 +199,22 @@ scale = Vector2(0.945, 0.945)
 shape = SubResource("CircleShape2D_8uvkj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, 0.563245)
-scale = Vector2(0.3725, 0.416093)
+position = Vector2(-0.251875, 3.50237)
+scale = Vector2(0.179714, 0.171592)
 sprite_frames = SubResource("SpriteFrames_qpdht")
-animation = &"back"
+animation = &"blast"
+frame = 1
+frame_progress = 0.334192
 flip_h = true
-
-[node name="alien" type="Area2D" parent="." groups=["alien"]]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="alien"]
-light_mask = 2
-visibility_layer = 3
-position = Vector2(-1, 1)
-scale = Vector2(0.31, 0.31)
-shape = SubResource("CircleShape2D_mdkcs")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 visible = false
 position = Vector2(-1.525, 1)
 scale = Vector2(0.5525, 0.8)
 
-[node name="Timer" type="Timer" parent="."]
-autostart = true
+[node name="alien" type="Area2D" parent="." groups=["alien"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alien"]
+position = Vector2(-1, 1)
+scale = Vector2(0.31, 0.31)
+shape = SubResource("CircleShape2D_mdkcs")
