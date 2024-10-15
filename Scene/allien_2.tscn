@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf3qhet3dwkk3"]
+[gd_scene load_steps=10 format=3 uid="uid://dorthoels2vfu"]
 
 [ext_resource type="PackedScene" uid="uid://cjitxcj8ed4x6" path="res://Scene/allien.tscn" id="1_nbs8g"]
 [ext_resource type="Texture2D" uid="uid://blilq7xprvc4j" path="res://Assests/Alliens/Alien2-removebg-preview.png" id="2_ui11g"]
@@ -82,3 +82,5 @@ animations = [{
 position = Vector2(0, 1.56324)
 sprite_frames = SubResource("SpriteFrames_u74e0")
 animation = &"back"
+frame = 0
+frame_progress = 0.0

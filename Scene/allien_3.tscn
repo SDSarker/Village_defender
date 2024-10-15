@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dleb5wcstgtew"]
+[gd_scene load_steps=15 format=3 uid="uid://gm58oha2tc0t"]
 
 [ext_resource type="PackedScene" uid="uid://cjitxcj8ed4x6" path="res://Scene/allien.tscn" id="1_mhqrf"]
 [ext_resource type="Texture2D" uid="uid://cpuwnvv7xwe2a" path="res://Assests/Alliens/Alien-removebg-preview.png" id="2_tm7ne"]

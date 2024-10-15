@@ -16,3 +16,6 @@ func _process(delta):
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()  # Remove the alien when it exits the screen
+func hit():
+	pass
+	
