@@ -1,7 +1,7 @@
 extends Node2D
 
 # Load the alien scene
-var alien_scene: PackedScene = preload("res://Scene//allien.tscn")
+var alien_scene: Array[PackedScene] = []
 
 # Array to hold Marker2D positions
 var markers: Array = []
@@ -10,6 +10,17 @@ var markers: Array = []
 var spawn_timer: Timer
 
 func _ready():
+	
+	var scene1=preload("res://Scene//allien.tscn")
+	var scene2=preload("res://Scene//allien_2.tscn")
+	var scene3=preload("res://Scene//allien_3.tscn")
+	var scene4=preload("res://Scene/allien_4.tscn")
+	alien_scene.append(scene1)
+	alien_scene.append(scene2)
+	alien_scene.append(scene3)
+	alien_scene.append(scene4)
+	
+	
 	# Populate the markers array with the 7 Marker2D nodes
 	for i in range(7):
 		var marker = get_node_or_null(NodePath("Marker2D_" + str(i+1)))  # Properly create a NodePath
@@ -24,7 +35,7 @@ func _ready():
 	
 	# Set up the timer for spawning every 2 seconds
 	spawn_timer = Timer.new()
-	spawn_timer.wait_time = 2.0
+	spawn_timer.wait_time = 0.5
 	spawn_timer.autostart = true
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 	add_child(spawn_timer)
@@ -36,7 +47,7 @@ func _on_spawn_timer_timeout():
 		var random_marker = markers[randi() % markers.size()]
 		
 		# Spawn an alien at the random marker's position
-		var alien_instance = alien_scene.instantiate()  # Instantiate the alien scene
+		var alien_instance = alien_scene.pick_random().instantiate()  # Instantiate the alien scene
 		alien_instance.position = random_marker.position  # Set alien position to marker position
 		
 		# Set movement direction based on marker index (1 to 4 go upwards, 5 to 7 go left)

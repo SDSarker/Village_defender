@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7agtvky446in"]
+
+[ext_resource type="PackedScene" uid="uid://cjitxcj8ed4x6" path="res://Scene/allien.tscn" id="1_r8o5b"]
+[ext_resource type="Texture2D" uid="uid://di4q6axdgpow" path="res://Assests/Alliens/Alien4.png" id="2_q5sb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5pf3"]
+atlas = ExtResource("2_q5sb1")
+region = Rect2(0, 0, 133, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvpk0"]
+atlas = ExtResource("2_q5sb1")
+region = Rect2(133, 0, 133, 138)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7vww"]
+atlas = ExtResource("2_q5sb1")
+region = Rect2(266, 0, 133, 138)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0p0ps"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5pf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvpk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7vww")
+}],
+"loop": true,
+"name": &"back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5pf3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvpk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7vww")
+}],
+"loop": true,
+"name": &"side",
+"speed": 5.0
+}]
+
+[node name="Allien_4" instance=ExtResource("1_r8o5b")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(-2, 1)
+scale = Vector2(1.28, 1.28)
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+position = Vector2(0.885625, 4.63683)
+scale = Vector2(0.329107, 0.357056)
+sprite_frames = SubResource("SpriteFrames_0p0ps")
+animation = &"back"
+
+[node name="CollisionShape2D" parent="alien" index="0"]
+position = Vector2(-2, 1)
+scale = Vector2(0.405, 0.405)
