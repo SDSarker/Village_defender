@@ -156,7 +156,8 @@ libraries = {
 shape = SubResource("CapsuleShape2D_t1mgy")
 
 [node name="Node2D" type="Node2D" parent="."]
-visible = false
+light_mask = 2
+visibility_layer = 3
 
 [node name="Sword" parent="Node2D" instance=ExtResource("3_nroi1")]
 position = Vector2(-16.5367, -16.1101)
@@ -167,6 +168,4 @@ scale = Vector2(0.5, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_hifrs")
 
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="Node2D/Sword" to="." method="_on_sword_body_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

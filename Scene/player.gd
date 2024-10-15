@@ -10,7 +10,6 @@ func handleInput():
 	velocity = moveDirection * speed
 	
 	if Input.is_action_just_pressed("attack"):
-		$Node2D.visible = true
 		animation_player.play("attack")
 		isAttaking = true
 		await animation_player.animation_finished
@@ -37,14 +36,3 @@ func _physics_process(_delta):
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	print("Collided!")
-
-
-func _on_sword_body_entered(body: Node2D) -> void:
-	if body.has_method("hit"):
-		print("worked")
-		
-		
-
-
-func _on_animation_player_animation_finished(attack) -> void:
-	$Node2D.visible = false
