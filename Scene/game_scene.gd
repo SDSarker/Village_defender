@@ -43,8 +43,10 @@ func _on_spawn_timer_timeout():
 		var marker_index = markers.find(random_marker) + 1  # Get the marker index (1-based)
 		if marker_index in [1, 2, 3, 4]:
 			alien_instance.direction = Vector2(0, -1)  # Move upwards (negative y direction)
+			#alien_instance.animated_sprite_2D.play("back")
 		elif marker_index in [5, 6, 7]:
 			alien_instance.direction = Vector2(-1, 0)  # Move left (negative x direction)
+			#alien_instance.animated_sprite_2D.play("side")
 		
 		add_child(alien_instance)
 	else:

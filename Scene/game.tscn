@@ -223,6 +223,11 @@ position = Vector2(1128, 184)
 position = Vector2(1128, 56)
 
 [node name="Player" parent="." instance=ExtResource("7_rp613")]
-position = Vector2(535, 417)
+position = Vector2(306, 312)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1, 0)
+zoom = Vector2(2.445, 2.445)
+position_smoothing_enabled = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
