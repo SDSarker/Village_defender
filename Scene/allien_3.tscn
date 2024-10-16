@@ -113,7 +113,11 @@ animations = [{
 [node name="Allien3" instance=ExtResource("1_mhqrf")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(-1.37406, 3.0328)
-scale = Vector2(0.161752, 0.14738)
+position = Vector2(0.797314, 0.260746)
+rotation = 0.00494027
+scale = Vector2(0.392182, 0.321656)
 sprite_frames = SubResource("SpriteFrames_fkdvu")
-animation = &"blast"
+animation = &"back"
+
+[node name="Timer" parent="." index="5"]
+wait_time = 0.5

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cf3qhet3dwkk3"]
+[gd_scene load_steps=15 format=3 uid="uid://cf3qhet3dwkk3"]
 
 [ext_resource type="PackedScene" uid="uid://cjitxcj8ed4x6" path="res://Scene/allien.tscn" id="1_nbs8g"]
 [ext_resource type="Texture2D" uid="uid://blilq7xprvc4j" path="res://Assests/Alliens/Alien2-removebg-preview.png" id="2_ui11g"]
+[ext_resource type="Texture2D" uid="uid://c88jsux8vtawn" path="res://Assests/Alliens/Blast.png" id="3_d0rxw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_55o28"]
 atlas = ExtResource("2_ui11g")
@@ -26,6 +27,22 @@ region = Rect2(182, 116, 35, 58)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vik2"]
 atlas = ExtResource("2_ui11g")
 region = Rect2(217, 116, 35, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoieb"]
+atlas = ExtResource("3_d0rxw")
+region = Rect2(0, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6if1g"]
+atlas = ExtResource("3_d0rxw")
+region = Rect2(153, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pck3j"]
+atlas = ExtResource("3_d0rxw")
+region = Rect2(306, 204, 153, 204)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfy2c"]
+atlas = ExtResource("3_d0rxw")
+region = Rect2(459, 204, 153, 204)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u74e0"]
 animations = [{
@@ -54,6 +71,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_eoieb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6if1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pck3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfy2c")
+}],
+"loop": true,
+"name": &"blast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_55o28")
 }, {
 "duration": 1.0,
@@ -79,5 +113,12 @@ animations = [{
 [node name="Allien2" instance=ExtResource("1_nbs8g")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-position = Vector2(0, 1.56324)
+position = Vector2(1.04648, 1.5)
+scale = Vector2(0.454487, 0.362069)
 sprite_frames = SubResource("SpriteFrames_u74e0")
+
+[node name="CollisionShape2D" parent="alien" index="0"]
+position = Vector2(-2.11758e-22, 2.11758e-22)
+
+[node name="Timer" parent="." index="5"]
+wait_time = 0.5

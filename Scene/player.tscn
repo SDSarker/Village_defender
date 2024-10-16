@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://pphswx0fkv1n"]
+[gd_scene load_steps=14 format=3 uid="uid://pphswx0fkv1n"]
 
 [ext_resource type="Script" path="res://Scene/player.gd" id="1_3715g"]
 [ext_resource type="Texture2D" uid="uid://00f0dj6nqk03" path="res://Assests/Knight/SpriteSheet.png" id="1_ygcgg"]
@@ -134,10 +134,14 @@ _data = {
 radius = 6.0
 height = 16.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqyg1"]
+size = Vector2(18.1933, 35.0209)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_hifrs"]
 radius = 9.21954
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_3715g")
 
@@ -162,10 +166,17 @@ visibility_layer = 3
 [node name="Sword" parent="Node2D" instance=ExtResource("3_nroi1")]
 position = Vector2(-16.5367, -16.1101)
 scale = Vector2(0.5, 0.5)
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D/Sword"]
+position = Vector2(-5.06568, -7.05653)
+rotation = 2.26952
+shape = SubResource("RectangleShape2D_qqyg1")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_hifrs")
 
+[connection signal="area_entered" from="Node2D/Sword" to="." method="_on_sword_area_entered"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
