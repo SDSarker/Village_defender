@@ -7847,4 +7847,6 @@ position = Vector2(1, 0)
 zoom = Vector2(2.445, 2.445)
 position_smoothing_enabled = true
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
