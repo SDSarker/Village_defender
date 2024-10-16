@@ -5,8 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dk63imtq1of2u" path="res://Assests/Redalllien.png" id="2_mkao0"]
 [ext_resource type="Texture2D" uid="uid://c88jsux8vtawn" path="res://Assests/Alliens/Blast.png" id="3_pwmee"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8uvkj"]
-radius = 9.05539
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihrc5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o1efo"]
 atlas = ExtResource("2_mkao0")
@@ -149,7 +148,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"blast",
-"speed": 9.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -191,20 +190,18 @@ animations = [{
 radius = 27.0
 
 [node name="Allien" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ipqul")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 1)
-scale = Vector2(0.945, 0.945)
-shape = SubResource("CircleShape2D_8uvkj")
+shape = SubResource("CircleShape2D_ihrc5")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.251875, 3.50237)
-scale = Vector2(0.179714, 0.171592)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Alien"]]
+position = Vector2(-0.0231466, 3.5)
+scale = Vector2(0.31713, 0.25)
 sprite_frames = SubResource("SpriteFrames_qpdht")
-animation = &"blast"
-frame = 1
-frame_progress = 0.334192
+animation = &"side"
 flip_h = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -215,6 +212,14 @@ scale = Vector2(0.5525, 0.8)
 [node name="alien" type="Area2D" parent="." groups=["alien"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="alien"]
-position = Vector2(-1, 1)
+position = Vector2(-5.96046e-08, 5.96046e-08)
 scale = Vector2(0.31, 0.31)
 shape = SubResource("CircleShape2D_mdkcs")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="alien" to="." method="_on_alien_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
